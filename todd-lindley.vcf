@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Lindley;Todd;M;;
+FN:Todd M Lindley
+TITLE:Engineering | Media | Consulting | Piscatores Hominum
+ORG:STML LLC
+TEL;TYPE=CELL,VOICE,PREF:+17204620858
+EMAIL;TYPE=WORK,PREF:todd@stmlllc.com
+EMAIL;TYPE=WORK:tmlindley@mustreadalaska.com
+item1.URL:https://stmlllc.com
+item1.X-ABLabel:STML LLC
+item2.URL:https://mustreadalaska.com
+item2.X-ABLabel:Must Read Alaska
+item3.URL:https://alaskamensrosary.com
+item3.X-ABLabel:Alaska Mens Rosary
+END:VCARD

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07131E">
+  <meta name="description" content="Todd M Lindley — Engineering | Media | Consulting | Piscatores Hominum">
+  <title>Todd M Lindley</title>
+  <style>
+    @font-face{font-family:'Cinzel';src:url('assets/fonts/Cinzel-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Cinzel';src:url('assets/fonts/Cinzel-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Cinzel';src:url('assets/fonts/Cinzel-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Playfair Display';src:url('assets/fonts/PlayfairDisplay-Regular.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Playfair Display';src:url('assets/fonts/PlayfairDisplay-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Playfair Display';src:url('assets/fonts/PlayfairDisplay-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap;}
+    @font-face{font-family:'Cormorant Garamond';src:url('assets/fonts/CormorantGaramond-Italic.ttf') format('truetype');font-weight:500;font-style:italic;font-display:swap;}
+    @font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-Semibold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap;}
+    :root {
+      --navy: #0B1C2C;
+      --navy-deep: #07131E;
+      --panel: #122536;
+      --gold: #C9A84C;
+      --gold-light: #E8D5A3;
+      --cream: #F4EFE3;
+      --teal: #008390;
+      --crimson: #BE1F2E;
+      --muted: #9BB0BE;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, #16344a 0%, transparent 60%),
+        var(--navy-deep);
+      color: var(--cream);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+    header.hero {
+      text-align: center;
+      padding: 12px 0 8px;
+    }
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .ornament:before, .ornament:after {
+      content: "";
+      height: 1px;
+      width: 64px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .ornament:after { background: linear-gradient(90deg, var(--gold), transparent); }
+    .ornament span { font-size: 9px; letter-spacing: 0; }
+    h1 {
+      font-family: Cinzel, "Palatino Linotype", Palatino, serif;
+      font-weight: 600;
+      font-size: clamp(1.55rem, 6.4vw, 1.9rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      line-height: 1.2;
+      color: var(--cream);
+    }
+    .roles {
+      margin: 0;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+    .roles .sep { color: var(--gold); opacity: 0.7; padding: 0 2px; font-weight: 400; }
+    .latin {
+      font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin: 10px 0 0;
+    }
+    .phone {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(201,168,76,0.4);
+      padding-bottom: 2px;
+    }
+    .phone:hover { color: var(--gold-light); }
+    .actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 22px 0 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn.save {
+      background: var(--gold);
+      color: var(--navy-deep);
+    }
+    .btn.save:hover { background: var(--gold-light); }
+    .btn.ghost {
+      background: transparent;
+      color: var(--gold-light);
+      border: 1px solid rgba(201,168,76,0.55);
+    }
+    .btn.ghost:hover { background: rgba(201,168,76,0.12); }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .biz {
+      position: relative;
+      background: linear-gradient(180deg, rgba(18,37,54,0.95), rgba(12,28,42,0.95));
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 16px;
+      padding: 22px 20px 18px;
+      margin: 16px 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .biz-mark {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 64px;
+      margin-bottom: 12px;
+    }
+    .logo { display: block; max-width: 100%; height: auto; }
+    .logo-stml { height: 86px; width: auto; }
+    .logo-mra { width: min(280px, 100%); height: auto; }
+    .wordmark {
+      font-family: Cinzel, serif;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      text-align: center;
+      line-height: 1.35;
+    }
+    .biz h2 {
+      margin: 0 0 8px;
+      text-align: center;
+      font-family: Cinzel, serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .headline {
+      margin: 0 0 6px;
+      text-align: center;
+      font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.12rem;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      color: var(--gold-light);
+    }
+    .founded {
+      margin: 0 0 10px;
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .desc {
+      margin: 0 0 12px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+    .desc.mission {
+      color: #d5dde4;
+    }
+    .values {
+      margin: 0 0 16px;
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .chips {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--cream);
+      border: 1px solid rgba(155,176,190,0.25);
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .chip.primary {
+      background: rgba(0,131,144,0.18);
+      border-color: rgba(0,131,144,0.45);
+    }
+    .chip:hover { border-color: var(--gold); color: var(--gold-light); }
+    .chip-label {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 12px;
+      margin-top: 14px;
+    }
+    .social {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+    .social svg { width: 16px; height: 16px; }
+    .social:hover { color: var(--gold-light); }
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+    footer .latin { font-size: 1rem; margin: 0 0 6px; }
+    @media (min-width: 720px) {
+      body { background-color: #050d14; }
+      .page {
+        margin: 36px auto 64px;
+        background: var(--navy-deep);
+        border: 1px solid rgba(201,168,76,0.2);
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+        padding: 36px 28px 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="ornament" aria-hidden="true"><span><svg width="9" height="13" viewBox="0 0 9 13" fill="currentColor" style="display:block"><rect x="3.4" y="0" width="2.2" height="13"/><rect x="0" y="2.8" width="9" height="2.2"/></svg></span></div>
+      <h1>Todd M Lindley</h1>
+      <p class="roles">Engineering <span class='sep'>|</span> Media <span class='sep'>|</span> Consulting</p>
+      <p class="latin">Piscatores Hominum</p>
+      <a class="phone" href="tel:+17204620858">+1 (720) 462-0858</a>
+      <div class="actions">
+        <a class="btn save" href="todd-lindley.vcf" download="todd-lindley.vcf">Save contact</a>
+        <a class="btn ghost" href="mailto:todd@stmlllc.com">todd@stmlllc.com</a>
+      </div>
+    </header>
+    
+      <article class="biz" id="stml">
+        <div class="biz-mark"><img class='logo logo-stml' src='assets/stml-logo.png' alt='STML LLC'></div>
+        <h2 class="">STML LLC</h2>
+        <p class='desc'>Innovative engineering solutions for complex projects and technical challenges.</p>
+        <div class="chips">
+          <a class="chip primary" href="https://stmlllc.com" target="_blank" rel="noopener">
+            <span class="chip-label">Website</span> stmlllc.com
+          </a>
+          <a class='chip' href='mailto:todd@stmlllc.com'><span class='chip-label'>Email</span> todd@stmlllc.com</a>
+        </div>
+        
+      </article>
+      <article class="biz" id="mra">
+        <div class="biz-mark"><img class='logo logo-mra' src='assets/mra-logo-on-dark.svg' alt='Must Read Alaska'></div>
+        <h2 class="visually-hidden">Must Read Alaska</h2>
+        <p class='headline'>An Audience That Shapes Alaska&apos;s Conversation</p>
+        <p class='founded'>Founded 2015</p>
+        <p class='desc mission'>To be Alaska&apos;s trusted source for news and analysis dedicated to America&apos;s founding principles.</p>
+        <p class='values'>Alaskan | Conservative | Innovative | Enduring</p>
+        <div class="chips">
+          <a class="chip primary" href="https://mustreadalaska.com" target="_blank" rel="noopener">
+            <span class="chip-label">Website</span> mustreadalaska.com
+          </a>
+          <a class='chip' href='mailto:tmlindley@mustreadalaska.com'><span class='chip-label'>Email</span> tmlindley@mustreadalaska.com</a>
+        </div>
+        <div class='socials'><a class='social' href='https://www.facebook.com/mustreadalaska/' target='_blank' rel='noopener' title='Facebook' aria-label='Must Read Alaska on Facebook'><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v8h4v-8h3.2l.8-4H13V9c0-.6.4-1 1-1z"/></svg><span>Facebook</span></a><a class='social' href='https://x.com/mustreadalaska' target='_blank' rel='noopener' title='X' aria-label='Must Read Alaska on X'><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.7 10.3 22 2h-2.2l-6.3 7.2L8.4 2H2.1l7.8 11.3L2 22h2.2l6.9-7.9L15.6 22h6.3l-7.2-11.7zm-2.4 2.8-.8-1.1L5.2 3.5h2.7l5.2 7.4.8 1.1 6.9 9.9h-2.7l-5.8-8.8z"/></svg><span>X</span></a><a class='social' href='https://www.instagram.com/mustreadak/' target='_blank' rel='noopener' title='Instagram' aria-label='Must Read Alaska on Instagram'><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8zm8.2 1.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 8.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2a1.8 1.8 0 1 0 1.8 1.8A1.8 1.8 0 0 0 12 10.2z"/></svg><span>Instagram</span></a><a class='social' href='https://www.youtube.com/c/MustReadAlaska' target='_blank' rel='noopener' title='YouTube' aria-label='Must Read Alaska on YouTube'><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 12.2s0-3.2-.4-4.6c-.2-.9-.9-1.6-1.8-1.8C19.2 5.4 12 5.4 12 5.4s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 9 1 12.2 1 12.2s0 3.2.4 4.6c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.4.4-4.6.4-4.6zM9.8 15.6V8.8l6.2 3.4-6.2 3.4z"/></svg><span>YouTube</span></a><a class='social' href='https://podcasts.apple.com/us/podcast/the-must-read-alaska-show/id1531215896' target='_blank' rel='noopener' title='Apple Podcasts' aria-label='Must Read Alaska on Apple Podcasts'><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.3 19.4c.2-1.2.7-3.2.8-3.6a5 5 0 1 1 5 0c.1.4.6 2.4.8 3.6A10 10 0 0 0 12 2zm0 4.2a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2zm0 11.2c-.7 0-1.4-.2-2-.5.2-1 .5-2.2.6-2.5.4-.2.9-.3 1.4-.3s1 .1 1.4.3c.1.3.4 1.5.6 2.5-.6.3-1.3.5-2 .5z"/></svg><span>Apple Podcasts</span></a></div>
+      </article>
+      <article class="biz" id="amr">
+        <div class="biz-mark"></div>
+        <h2 class="">Alaska Mens Rosary</h2>
+        <p class='desc'>A brotherhood of Catholic men across Alaska united in praying the Holy Rosary for reparation and the conversion of sinners, inspired by Our Lady of Fatima.</p>
+        <div class="chips">
+          <a class="chip primary" href="https://alaskamensrosary.com" target="_blank" rel="noopener">
+            <span class="chip-label">Website</span> alaskamensrosary.com
+          </a>
+          
+        </div>
+        <div class='socials'><a class='social' href='https://x.com/akolfatima' target='_blank' rel='noopener' title='X' aria-label='Alaska Mens Rosary on X'><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.7 10.3 22 2h-2.2l-6.3 7.2L8.4 2H2.1l7.8 11.3L2 22h2.2l6.9-7.9L15.6 22h6.3l-7.2-11.7zm-2.4 2.8-.8-1.1L5.2 3.5h2.7l5.2 7.4.8 1.1 6.9 9.9h-2.7l-5.8-8.8z"/></svg><span>X</span></a></div>
+      </article>
+    <footer>
+      <p class="latin">Piscatores Hominum</p>
+      <p>Engineering &#183; Media &#183; Consulting</p>
+    </footer>
+  </div>
+</body>
+</html>
